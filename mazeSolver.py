@@ -1,4 +1,3 @@
-import streamlit as st
 import random
 import numpy as np
 import matplotlib.pyplot as plt
@@ -6,6 +5,8 @@ import IPython.display as display
 import time
 from PIL import Image
 import cv2
+import streamlit as st
+
 st.title("Maze Solver App")
 st.write("This app solves a maze using a reinforcement learning agent.")
 st.set_option('deprecation.showPyplotGlobalUse', False)
