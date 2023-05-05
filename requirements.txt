@@ -1,5 +1,6 @@
 numpy
 matplotlib
+ipython
 Pillow
 gym
 opencv-python-headless
