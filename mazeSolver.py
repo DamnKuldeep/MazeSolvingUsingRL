@@ -5,6 +5,7 @@ import IPython.display as display
 import time
 from PIL import Image
 import cv2
+from gym import spaces
 import streamlit as st
 
 st.title("Maze Solver App")
