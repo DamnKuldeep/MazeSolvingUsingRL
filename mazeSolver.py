@@ -137,7 +137,6 @@ try:
     maze_resized = maze_binary.resize((10, 10), resample=Image.BILINEAR)
     
     maze_array = 1 - np.array(maze_resized, dtype=np.int)
-    maze_array = maze_array.tolist()
     print(maze_array)
     env = MazeEnv(maze_array)
     
