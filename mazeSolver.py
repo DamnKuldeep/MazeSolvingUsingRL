@@ -200,7 +200,7 @@ class agent:
             st.write(f"Maze Solved")
         else:
             st.write("The Maze is not solvable")
-            
+
 uploaded_file = st.file_uploader("Choose a PNG image file", type="png")
 try:
     
@@ -212,6 +212,7 @@ try:
     maze_resized = maze_binary.resize((10, 10), resample=Image.BILINEAR)
     
     maze_array = 1 - np.array(maze_resized, dtype=np.int)
+    print(maze_array)
     env = MazeEnv(maze_array)
     
 except:
