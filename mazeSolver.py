@@ -35,7 +35,22 @@ for row in maze_list.split("\n"):
 
 maze = np.array(maze)
 
+uploaded_file = st.file_uploader("Choose a PNG image file", type="png")
+try:
+    
+    maze_image = Image.open(uploaded_file).convert('L')
 
+    threshold_value = 128
+    maze_binary = maze_image.point(lambda x: 255 if x > threshold_value else 0, mode='1')
+    
+    maze_resized = maze_binary.resize((10, 10), resample=Image.BILINEAR)
+    
+    maze_array = 1 - np.array(maze_resized, dtype=np.int)
+    print(maze_array)
+    env = MazeEnv(maze_array)
+    
+except:
+    env= MazeEnv(maze)
 
 
 class MazeEnv():
@@ -201,22 +216,7 @@ class agent:
         else:
             st.write("The Maze is not solvable")
 
-uploaded_file = st.file_uploader("Choose a PNG image file", type="png")
-try:
-    
-    maze_image = Image.open(uploaded_file).convert('L')
 
-    threshold_value = 128
-    maze_binary = maze_image.point(lambda x: 255 if x > threshold_value else 0, mode='1')
-    
-    maze_resized = maze_binary.resize((10, 10), resample=Image.BILINEAR)
-    
-    maze_array = 1 - np.array(maze_resized, dtype=np.int)
-    print(maze_array)
-    env = MazeEnv(maze_array)
-    
-except:
-    env= MazeEnv(maze)
 
 def main():
 
