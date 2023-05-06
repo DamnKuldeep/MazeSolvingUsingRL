@@ -200,9 +200,10 @@ class agent:
             st.write(f"Maze Solved")
         else:
             st.write("The Maze is not solvable")
-
+            
+uploaded_file = st.file_uploader("Choose a PNG image file", type="png")
 try:
-    uploaded_file = st.file_uploader("Choose a PNG image file", type="png")
+    
     maze_image = Image.open(uploaded_file).convert('L')
 
     threshold_value = 128
