@@ -45,7 +45,7 @@ class MazeEnv():
 
         self.maze = maze
         self.start = (0, 0)
-        self.end = (self.maze.shape[0]-1,self.maze.shape[1]-1)
+        self.end = (maze.shape[0]-1,maze.shape[1]-1)
         self.current_pos = self.start
         self.agent_pos = self.start
         self.cumulative_reward = 0
