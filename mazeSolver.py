@@ -189,8 +189,6 @@ class agent:
                 i += 1
                 if i == 10:
                     break
-            print(
-                f"Taking action {action} in state {(self.env.agent_pos[0], self.env.agent_pos[1])}")
             st.pyplot(clear_figure = True)
             time.sleep(0.5)
             display.clear_output(wait=True)
