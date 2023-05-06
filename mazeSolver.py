@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import IPython.display as display
 import time
 from PIL import Image
-import cv2
 from gym import spaces
+import cv2
 import streamlit as st
 
 st.title("Maze Solver App")
