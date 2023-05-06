@@ -129,12 +129,15 @@ class MazeEnv():
         return new_pos == self.end
 try:
     
-    maze_image = cv2.imread(uploaded_file, cv2.IMREAD_GRAYSCALE)
-    threshold_value = 128
-    _, maze_binary = cv2.threshold(maze_image, threshold_value, 255, cv2.THRESH_BINARY)
-    maze_resized = cv2.resize(maze_binary, (10, 10), interpolation=cv2.INTER_LINEAR)
-    maze_array = 1 - maze_resized / 255
+    maze_image = Image.open(uploaded_file).convert('L')
 
+    threshold_value = 128
+    maze_binary = maze_image.point(lambda x: 255 if x > threshold_value else 0, mode='1')
+    
+    maze_resized = maze_binary.resize((10, 10), resample=Image.BILINEAR)
+    
+    maze_array = 1 - np.array(maze_resized, dtype=np.int)
+    print(maze_array)
     env = MazeEnv(maze_array)
     
 except:
